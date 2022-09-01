@@ -1,0 +1,60 @@
+{
+	"disk6" :
+	{
+		"hyper_parameters":
+		{
+			"match_sigma2Dist" : 5.0,
+			"macth_sigma2Dir" : 0.5,
+			"match_ProbabilityThresh" : 0.1,
+			"pnp_minPoints" : 4,
+			"pnp_errorThresh" : 1.5,
+			"ekf_minPoints" : 3,
+			"ekf_errorThresh" : 3.0,
+			"ekf_measureNoiseSigma" : 0.1,
+			"ekf_dynamicNoiseScalar" : 0.02,
+			"keypose_distanceThresh" : 0.1,
+			"keypose_similarityThresh" : 0.7
+		},
+
+		"imu_parameters": {
+			"range_acc": 16,
+			"range_gyr": 2000,
+			"bias_gyr": [ -0.0285, 0.0135, 0.0115 ],
+			"bias_acc": [ 0.5291, -0.0679, -0.4528 ],
+			"delay": 2900,
+			"sample_rate": 1000,
+
+			"velocity_randomwalk": [ 1.036670e-03, 1.051343e-03, 1.647250e-03 ],
+			"angle_randomwalk": [ 1.079148e-04, 1.019129e-04, 1.228679e-04 ],
+			"acc_bias_randomwalk": [ 2.322513e-04, 1.499549e-04, 5.840437e-04 ],
+			"gyr_bias_randomwalk": [ 5.321764e-05, 3.683384e-05, 7.068700e-05 ],
+			"inv_scale_factor_acc": [ 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 ],
+			"inv_scale_factor_gyr": [ 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 ]
+		},
+		"pose_Mib" : [-0.0202870,0.0161013,-0.0107,0,0,0],
+		
+		"body_parameters" :
+		{
+			"marker_number": 5,
+			"min_id": 1,
+			"max_id": 5,
+
+			"coordinate": [
+				0.0008127,0.0198925,0.0107,
+				0.0398873,0.0198925,0.0107,
+				0.0602373,0.0153547,0.0107,
+				0.0398873,0.0506019,0.0107,
+				0.0008127,0.0506019,0.0107
+			],
+
+			"coordinate_norm": [
+				0,0,0.01,
+				0,0,0.01,
+				0,0,0.01,
+				0,0,0.01,
+				0,0,0.01
+			]
+		}
+		
+	}
+}
