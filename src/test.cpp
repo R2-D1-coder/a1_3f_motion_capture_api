@@ -10,7 +10,14 @@ using namespace std;
 int main(int argc, char** argv)
 {
 	ofstream ofs;
-	ofs.open("route_info.csv", ios::out);
+
+	time_t rawtime;
+	struct tm* info;
+	char buffer[80];
+	time(&rawtime);
+	info = localtime(&rawtime);
+	strftime(buffer, 80, "route_%m_%d_%H_%M_%S.csv", info);
+	ofs.open( buffer, ios::out);
 
 	Mpro app;
 	app.Init();
@@ -20,7 +27,9 @@ int main(int argc, char** argv)
 		{
 			std::list<HPP::RigidInfo> lis;
 			bool first_time = false;
-			std::chrono::steady_clock::time_point start;
+			//std::chrono::steady_clock::time_point start;
+
+			std::chrono::time_point<std::chrono::system_clock> start;
 			long long stamp_start = 0;
 
 			while (!isExit)
@@ -59,7 +68,8 @@ int main(int argc, char** argv)
 
 					if (first_time == false)
 					{
-						start = std::chrono::high_resolution_clock::now();
+						first_time = true;
+						start = std::chrono::system_clock::now();
 						stamp_start = iter->time_stamp;
 					}
 					auto now = start + std::chrono::nanoseconds(iter->time_stamp - stamp_start);
