@@ -78,14 +78,18 @@ int main(int argc, char** argv)
 					auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(now_log);
 					now_log -= microseconds;
 					auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(now_log);
-
-					ofs << hours.count() << ":"
-						<< minutes.count() << ":"
-						<< seconds.count() << "."
-						<< milliseconds.count() << "'"
-						<< microseconds.count() << "''"
-						<< nanoseconds.count() << ","<< std::endl;
-				
+					ofs.fill('0');					ofs.width(2);
+					ofs << hours.count() + 8 << ":";
+					ofs.fill('0');					ofs.width(2);
+					ofs << minutes.count() << ":";
+					ofs.fill('0');					ofs.width(2);
+					ofs << seconds.count() << ".";
+					ofs.fill('0');					ofs.width(3);
+					ofs << milliseconds.count() << "'";
+					ofs.fill('0');					ofs.width(3);
+					ofs << microseconds.count() << "''";
+					ofs.fill('0');					ofs.width(3);
+					ofs << nanoseconds.count() << "," << std::endl;
 
 					printf("pose: %.5f, %.5f, %.5f, %.5f, %.5f, %.5f, %.5f\n",
 						iter->pose.quaternion[0],
