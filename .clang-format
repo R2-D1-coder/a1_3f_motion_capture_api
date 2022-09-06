@@ -1,0 +1,16 @@
+---
+BasedOnStyle: Google
+---
+Language:                               Cpp
+Cpp11BracedListStyle:                   true
+Standard:                               Cpp11
+CommentPragmas: '^ NOLINT'
+ColumnLimit: 120
+DerivePointerAlignment: false
+PointerAlignment: Left
+IncludeBlocks: Preserve
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: 2
+AlignTrailingComments: true
