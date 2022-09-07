@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
+    "\\build",
     "\\dep",
+    "\\dep\\include",
     "\\dep\\lib",
     "\\src"
   ],
-  "SelectedNode": "\\src\\test.cpp",
+  "SelectedNode": "\\bin\\Mpro.exe.manifest",
   "PreviewInSolutionExplorer": false
 }

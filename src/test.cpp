@@ -1,6 +1,7 @@
 #include <chrono>
 #include <ctime>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <string>
 #include <thread>
@@ -57,12 +58,18 @@ int main(int argc, char** argv) {
         auto nanoseconds  = std::chrono::duration_cast<std::chrono::nanoseconds>(now_log -= microseconds);
         ofs.fill('0');
         ofs.width(2);
-        ofs << hours.count() + 8 << ":" << minutes.count() << ":" << seconds.count() << ".";
+        ofs << hours.count() + 8 << ":";
+        ofs.width(2);
+        ofs << minutes.count() << ":";
+        ofs.width(2);
+        ofs << seconds.count() << ".";
         ofs.width(3);
-        ofs << milliseconds.count() << "'" << microseconds.count() << "''" << 0 << ", ";
-
-        ofs << iter->vel[0] << ", " << iter->vel[1] << ", " << iter->vel[2] << ", ";
-        ofs << iter->angular_vel[0] << ", " << iter->angular_vel[1] << ", " << iter->angular_vel[2] << "," << std::endl;
+        ofs << milliseconds.count() << "'";
+        ofs.width(3);
+        ofs << microseconds.count() << "''" << 0 << ", ";
+        ofs << setiosflags(ios::fixed) << setprecision(8);
+        ofs << sqrt(pow(iter->vel[0], 2) + pow(iter->vel[1], 2) + pow(iter->vel[2], 2)) << ", ";
+        ofs << iter->angular_vel[2] << "," << std::endl;
 
         std::cout << minutes.count() << ":" << seconds.count() << "." << milliseconds.count() << "'"
                   << microseconds.count() << "''" << 0 << ":  ";
