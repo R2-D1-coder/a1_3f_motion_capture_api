@@ -1,3 +1,13 @@
+/*
+ * @Descripttion: 功能
+ * @Version:
+ * @Author:
+ * @Date: 2022-10-09 16:48:48
+ * @LastEditors: Yang DongHao
+ * @LastEditTime: 2022-10-09 17:00:01
+ * @FilePath: \a1_3f_motion_capture_api\src\test.cpp
+ * @@copyright: Copyright (c) 2020, Dreame Inc.
+ */
 #include <chrono>
 #include <ctime>
 #include <fstream>
@@ -68,7 +78,12 @@ int main(int argc, char** argv) {
         ofs.width(3);
         ofs << microseconds.count() << "''" << 0 << ", ";
         ofs << setiosflags(ios::fixed) << setprecision(8);
-        ofs << sqrt(pow(iter->vel[0], 2) + pow(iter->vel[1], 2) + pow(iter->vel[2], 2)) << ", ";
+
+        ofs << iter->vel[0] << ", ";
+        ofs << iter->vel[1] << ", ";
+        ofs << iter->vel[2] << ", ";
+        ofs << iter->angular_vel[0] << ", ";
+        ofs << iter->angular_vel[1] << ", ";
         ofs << iter->angular_vel[2] << "," << std::endl;
 
         std::cout << minutes.count() << ":" << seconds.count() << "." << milliseconds.count() << "'"
